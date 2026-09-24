@@ -1,0 +1,23 @@
+openapi: 3.1.0
+info: {title: Codestra Connect Share Consent Connection Contract, version: 0.4.0}
+paths:
+  /c/{token}:
+    get:
+      operationId: resolveShare
+      parameters: [{in: path, name: token, required: true, schema: {type: string}}]
+      responses: {'200': {description: Public card projection}, '404': {description: Unknown expired or revoked}}
+  /v1/cards/{card_id}/vcard:
+    get:
+      operationId: getScopedVcard
+      parameters: [{in: path, name: card_id, required: true, schema: {type: string, format: uuid}}]
+      responses: {'200': {description: Consent and policy scoped vCard}}
+  /v1/share-sessions/{token}/consents:
+    post:
+      operationId: recordConsent
+      parameters: [{in: path, name: token, required: true, schema: {type: string}}]
+      responses: {'201': {description: Versioned consent receipt}}
+  /v1/connections/{connection_id}/connect-back:
+    post:
+      operationId: connectBack
+      parameters: [{in: path, name: connection_id, required: true, schema: {type: string, format: uuid}}]
+      responses: {'202': {description: Reciprocal request}}

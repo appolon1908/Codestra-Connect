@@ -1,0 +1,19 @@
+openapi: 3.1.0
+info: {title: Codestra Connect Share Transport, version: 0.1.0}
+paths:
+  /c/{token}:
+    get:
+      operationId: resolvePublicShare
+      parameters:
+        - {in: path, name: token, required: true, schema: {type: string, minLength: 20}}
+      responses:
+        '200': {description: Public card projection only}
+        '404': {description: Unknown expired or revoked token}
+  /v1/share-tokens/{token_id}/revoke:
+    post:
+      operationId: revokeShareToken
+      parameters:
+        - {in: path, name: token_id, required: true, schema: {type: string, format: uuid}}
+        - {in: header, name: Idempotency-Key, required: true, schema: {type: string, minLength: 8}}
+      responses:
+        '204': {description: Revoked}

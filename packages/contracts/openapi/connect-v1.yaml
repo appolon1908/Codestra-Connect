@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Codestra Connect API
+  version: 0.7.0
+  description: Consent-first identity, persona, connection and social-adapter API.
+servers:
+  - url: https://connect.codestra.co
+    description: Production target
+  - url: https://staging-connect.codestra.co
+    description: Staging target
+  - url: http://localhost:8095
+    description: Local development
+paths:
+  /health:
+    get: {operationId: health, responses: {'200': {description: Healthy}}}
+  /ready:
+    get: {operationId: ready, responses: {'200': {description: Ready}}}
+  /v1/profiles:
+    post: {operationId: createProfile, responses: {'201': {description: Created}}}
+  /v1/personas:
+    post: {operationId: createPersona, responses: {'201': {description: Created}}}
+  /v1/cards:
+    post: {operationId: createCard, responses: {'201': {description: Created}}}
+  /v1/cards/{card_id}/share-tokens:
+    post:
+      operationId: createShareToken
+      parameters:
+        - {in: path, name: card_id, required: true, schema: {type: string, format: uuid}}
+        - {in: header, name: Idempotency-Key, required: true, schema: {type: string, minLength: 8}}
+      responses: {'201': {description: Created}}
+  /c/{token}:
+    get:
+      operationId: resolvePublicShare
+      parameters: [{in: path, name: token, required: true, schema: {type: string, minLength: 20}}]
+      responses: {'200': {description: Public projection}, '404': {description: Unknown expired or revoked}}
+  /v1/share-sessions/{token}/consents:
+    post:
+      operationId: recordConsent
+      parameters: [{in: path, name: token, required: true, schema: {type: string, minLength: 20}}]
+      responses: {'201': {description: Consent recorded}}
+  /v1/connections:
+    get: {operationId: listConnections, responses: {'200': {description: Connections}}}
+    post:
+      operationId: createConnection
+      parameters: [{in: header, name: Idempotency-Key, required: true, schema: {type: string, minLength: 8}}]
+      responses: {'201': {description: Created}}
+  /v1/connections/{connection_id}/connect-back:
+    post:
+      operationId: connectBack
+      parameters:
+        - {in: path, name: connection_id, required: true, schema: {type: string, format: uuid}}
+        - {in: header, name: Idempotency-Key, required: true, schema: {type: string, minLength: 8}}
+      responses: {'202': {description: Reciprocal connection requested}}
+  /v1/connections/{connection_id}/revoke:
+    post:
+      operationId: revokeConnection
+      parameters: [{in: path, name: connection_id, required: true, schema: {type: string, format: uuid}}]
+      responses: {'204': {description: Revoked}}
+  /v1/social-adapters:
+    get: {operationId: listSocialAdapters, responses: {'200': {description: Adapter registry}}}
+  /v1/social-adapters/{provider}/capabilities:
+    get:
+      operationId: getSocialCapabilities
+      parameters: [{in: path, name: provider, required: true, schema: {type: string}}]
+      responses: {'200': {description: Provider capability declaration}}
+  /v1/social-actions:
+    post:
+      operationId: createSocialAction
+      parameters: [{in: header, name: Idempotency-Key, required: true, schema: {type: string, minLength: 8}}]
+      responses: {'202': {description: Action accepted or user action required}}
+  /v1/social-actions/{action_id}:
+    get:
+      operationId: getSocialAction
+      parameters: [{in: path, name: action_id, required: true, schema: {type: string, format: uuid}}]
+      responses: {'200': {description: Action state}}
+  /v1/oauth/{provider}/authorize:
+    get:
+      operationId: authorizeProvider
+      parameters: [{in: path, name: provider, required: true, schema: {type: string}}]
+      responses: {'302': {description: Provider authorization redirect}}
+  /v1/oauth/{provider}/callback:
+    get:
+      operationId: providerCallback
+      parameters: [{in: path, name: provider, required: true, schema: {type: string}}]
+      responses: {'302': {description: Return to Connect}}
+components:
+  schemas:
+    PersonaKind: {type: string, enum: [business, personal, friends_family, social_leisure, dating_private, event, travel, custom]}
+    DisclosureLevel: {type: string, enum: [public, ask_first, private, never_auto_share]}
+    SocialActionState: {type: string, enum: [requires_user_action, authorized, completed, failed, revoked, unsupported]}

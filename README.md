@@ -1,16 +1,19 @@
 # Codestra Connect
-Standalone Codestra application for identity, personas, QR/NFC sharing, consent, connections, social adapters and enterprise identity.
+One identity. Many personas. One consent layer.
 
-## Standalone application rule
-Codestra Connect owns its own runtime, database migrations, API contract, tests, CI, deployment manifests, observability contract and release lifecycle. Other Codestra applications integrate only through versioned APIs/events. No application may require another repository's source tree to build or boot.
+Consent-first identity and relationship platform for personal, business, leisure, events, and enterprise use.
 
-## Environment branches
-- development — active integration
-- testing — automated/integration acceptance
-- staging — staging promotion
-- production — production promotion
-- main — protected canonical release history
+## Mission 1 â€” Foundation
+Modular monorepo boundaries: apps/web (PWA), services/api (API), packages/contracts (OpenAPI), packages/domain (invariants), packages/ui (shared UX), infra, docs, tests.
 
-API target: https://connect.codestra.co/v1
-Staging: https://staging-connect.codestra.co
-Local: http://localhost:8095
+## Invariants
+1. Consent before effect.
+2. One account may own many isolated personas.
+3. Corporate Work personas never expose private personas to corporate admins.
+4. QR/NFC transports never contain raw private contact data.
+5. Social actions report actual provider capability.
+6. Tenant authorization is server-side and default-deny.
+7. Effectful operations are idempotent and auditable.
+
+First slice: Profile â†’ Persona â†’ Card â†’ Share Token â†’ Public Connect â†’ Consent â†’ scoped vCard.
+Git remote is intentionally not configured yet. Mission 2 begins after the canonical GitHub repository is provided.

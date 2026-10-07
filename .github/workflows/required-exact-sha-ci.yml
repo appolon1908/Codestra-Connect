@@ -71,6 +71,21 @@ jobs:
           python3 scripts/validate_sections_ab.py
           python3 scripts/validate_sections_cd.py
 
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Codestra Connect project validators
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/validate_foundation.py
+          python3 scripts/validate_mission7.py
+          python3 scripts/validate_sections_ab.py
+          python3 scripts/validate_sections_cd.py
+
       - name: Record exact-SHA evidence in runner-controlled storage
         shell: bash
         run: |

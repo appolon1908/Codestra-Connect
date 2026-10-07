@@ -60,6 +60,15 @@ jobs:
             git diff --check "$EXPECTED_SHA^" "$EXPECTED_SHA"
           fi
           git fsck --no-progress
+      - name: Run Codestra Connect project validators
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/validate_foundation.py
+          python3 scripts/validate_mission7.py
+          python3 scripts/validate_sections_ab.py
+          python3 scripts/validate_sections_cd.py
+
       - name: Record exact-SHA evidence in runner-controlled storage
         shell: bash
         run: |

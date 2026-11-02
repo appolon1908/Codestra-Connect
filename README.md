@@ -16,4 +16,6 @@ Modular monorepo boundaries: apps/web (PWA), services/api (API), packages/contra
 7. Effectful operations are idempotent and auditable.
 
 First slice: Profile → Persona → Card → Share Token → Public Connect → Consent → scoped vCard.
-Git remote is intentionally not configured yet. Mission 2 begins after the canonical GitHub repository is provided.
+
+Canonical repository: https://github.com/appolon1908/Codestra-Connect.
+The canonical remote prerequisite for Mission 2 is satisfied. Further work follows the repository's review, validation and environment-promotion gates; this declaration does not authorize production activation.

@@ -1,0 +1,805 @@
+{
+  "schema_version": "codestra.workstations.v3",
+  "family": "codestra-connect",
+  "product": "Codestra-Connect",
+  "sections": [
+    {
+      "section": "cn-a-platform-foundation",
+      "branch": "section/cn-a-platform-foundation",
+      "order": 1,
+      "depends_on": [],
+      "subsections": [
+        {
+          "subsection": "01-architecture-contracts",
+          "workstation_id": "codestra-connect::cn-a-platform-foundation::01-architecture-contracts",
+          "branch": "subsection/cn-a-platform-foundation--01-architecture-contracts",
+          "parent_branch": "section/cn-a-platform-foundation",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-a-platform-foundation/subsections/01-architecture-contracts/repo"
+        },
+        {
+          "subsection": "02-database-tenancy",
+          "workstation_id": "codestra-connect::cn-a-platform-foundation::02-database-tenancy",
+          "branch": "subsection/cn-a-platform-foundation--02-database-tenancy",
+          "parent_branch": "section/cn-a-platform-foundation",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-a-platform-foundation::01-architecture-contracts"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-a-platform-foundation/subsections/02-database-tenancy/repo"
+        },
+        {
+          "subsection": "03-ci-quality",
+          "workstation_id": "codestra-connect::cn-a-platform-foundation::03-ci-quality",
+          "branch": "subsection/cn-a-platform-foundation--03-ci-quality",
+          "parent_branch": "section/cn-a-platform-foundation",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-a-platform-foundation::02-database-tenancy"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-a-platform-foundation/subsections/03-ci-quality/repo"
+        },
+        {
+          "subsection": "04-runtime-operations",
+          "workstation_id": "codestra-connect::cn-a-platform-foundation::04-runtime-operations",
+          "branch": "subsection/cn-a-platform-foundation--04-runtime-operations",
+          "parent_branch": "section/cn-a-platform-foundation",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-a-platform-foundation::03-ci-quality"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-a-platform-foundation/subsections/04-runtime-operations/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-b-identity-personas",
+      "branch": "section/cn-b-identity-personas",
+      "order": 2,
+      "depends_on": [
+        "codestra-connect::cn-a-platform-foundation"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-identity-profile",
+          "workstation_id": "codestra-connect::cn-b-identity-personas::01-identity-profile",
+          "branch": "subsection/cn-b-identity-personas--01-identity-profile",
+          "parent_branch": "section/cn-b-identity-personas",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-b-identity-personas/subsections/01-identity-profile/repo"
+        },
+        {
+          "subsection": "02-persona-engine",
+          "workstation_id": "codestra-connect::cn-b-identity-personas::02-persona-engine",
+          "branch": "subsection/cn-b-identity-personas--02-persona-engine",
+          "parent_branch": "section/cn-b-identity-personas",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-b-identity-personas::01-identity-profile"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-b-identity-personas/subsections/02-persona-engine/repo"
+        },
+        {
+          "subsection": "03-cards-disclosure",
+          "workstation_id": "codestra-connect::cn-b-identity-personas::03-cards-disclosure",
+          "branch": "subsection/cn-b-identity-personas--03-cards-disclosure",
+          "parent_branch": "section/cn-b-identity-personas",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-b-identity-personas::02-persona-engine"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-b-identity-personas/subsections/03-cards-disclosure/repo"
+        },
+        {
+          "subsection": "04-identity-ux-tests",
+          "workstation_id": "codestra-connect::cn-b-identity-personas::04-identity-ux-tests",
+          "branch": "subsection/cn-b-identity-personas--04-identity-ux-tests",
+          "parent_branch": "section/cn-b-identity-personas",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-b-identity-personas::03-cards-disclosure"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-b-identity-personas/subsections/04-identity-ux-tests/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-c-share-transport",
+      "branch": "section/cn-c-share-transport",
+      "order": 3,
+      "depends_on": [
+        "codestra-connect::cn-b-identity-personas"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-share-tokens",
+          "workstation_id": "codestra-connect::cn-c-share-transport::01-share-tokens",
+          "branch": "subsection/cn-c-share-transport--01-share-tokens",
+          "parent_branch": "section/cn-c-share-transport",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-c-share-transport/subsections/01-share-tokens/repo"
+        },
+        {
+          "subsection": "02-qr-engine",
+          "workstation_id": "codestra-connect::cn-c-share-transport::02-qr-engine",
+          "branch": "subsection/cn-c-share-transport--02-qr-engine",
+          "parent_branch": "section/cn-c-share-transport",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-c-share-transport::01-share-tokens"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-c-share-transport/subsections/02-qr-engine/repo"
+        },
+        {
+          "subsection": "03-nfc-wallet-badge",
+          "workstation_id": "codestra-connect::cn-c-share-transport::03-nfc-wallet-badge",
+          "branch": "subsection/cn-c-share-transport--03-nfc-wallet-badge",
+          "parent_branch": "section/cn-c-share-transport",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-c-share-transport::02-qr-engine"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-c-share-transport/subsections/03-nfc-wallet-badge/repo"
+        },
+        {
+          "subsection": "04-public-share",
+          "workstation_id": "codestra-connect::cn-c-share-transport::04-public-share",
+          "branch": "subsection/cn-c-share-transport--04-public-share",
+          "parent_branch": "section/cn-c-share-transport",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-c-share-transport::03-nfc-wallet-badge"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-c-share-transport/subsections/04-public-share/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-d-consent-connections",
+      "branch": "section/cn-d-consent-connections",
+      "order": 4,
+      "depends_on": [
+        "codestra-connect::cn-c-share-transport"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-consent-ledger",
+          "workstation_id": "codestra-connect::cn-d-consent-connections::01-consent-ledger",
+          "branch": "subsection/cn-d-consent-connections--01-consent-ledger",
+          "parent_branch": "section/cn-d-consent-connections",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-d-consent-connections/subsections/01-consent-ledger/repo"
+        },
+        {
+          "subsection": "02-vcard",
+          "workstation_id": "codestra-connect::cn-d-consent-connections::02-vcard",
+          "branch": "subsection/cn-d-consent-connections--02-vcard",
+          "parent_branch": "section/cn-d-consent-connections",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-d-consent-connections::01-consent-ledger"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-d-consent-connections/subsections/02-vcard/repo"
+        },
+        {
+          "subsection": "03-connect-back-graph",
+          "workstation_id": "codestra-connect::cn-d-consent-connections::03-connect-back-graph",
+          "branch": "subsection/cn-d-consent-connections--03-connect-back-graph",
+          "parent_branch": "section/cn-d-consent-connections",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-d-consent-connections::02-vcard"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-d-consent-connections/subsections/03-connect-back-graph/repo"
+        },
+        {
+          "subsection": "04-connection-ux-api",
+          "workstation_id": "codestra-connect::cn-d-consent-connections::04-connection-ux-api",
+          "branch": "subsection/cn-d-consent-connections--04-connection-ux-api",
+          "parent_branch": "section/cn-d-consent-connections",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-d-consent-connections::03-connect-back-graph"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-d-consent-connections/subsections/04-connection-ux-api/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-e-social",
+      "branch": "section/cn-e-social",
+      "order": 5,
+      "depends_on": [
+        "codestra-connect::cn-d-consent-connections"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-provider-capabilities",
+          "workstation_id": "codestra-connect::cn-e-social::01-provider-capabilities",
+          "branch": "subsection/cn-e-social--01-provider-capabilities",
+          "parent_branch": "section/cn-e-social",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-e-social/subsections/01-provider-capabilities/repo"
+        },
+        {
+          "subsection": "02-social-accounts",
+          "workstation_id": "codestra-connect::cn-e-social::02-social-accounts",
+          "branch": "subsection/cn-e-social--02-social-accounts",
+          "parent_branch": "section/cn-e-social",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-e-social::01-provider-capabilities"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-e-social/subsections/02-social-accounts/repo"
+        },
+        {
+          "subsection": "03-action-adapters",
+          "workstation_id": "codestra-connect::cn-e-social::03-action-adapters",
+          "branch": "subsection/cn-e-social--03-action-adapters",
+          "parent_branch": "section/cn-e-social",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-e-social::02-social-accounts"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-e-social/subsections/03-action-adapters/repo"
+        },
+        {
+          "subsection": "04-reconciliation",
+          "workstation_id": "codestra-connect::cn-e-social::04-reconciliation",
+          "branch": "subsection/cn-e-social--04-reconciliation",
+          "parent_branch": "section/cn-e-social",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-e-social::03-action-adapters"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-e-social/subsections/04-reconciliation/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-f-enterprise",
+      "branch": "section/cn-f-enterprise",
+      "order": 6,
+      "depends_on": [
+        "codestra-connect::cn-e-social"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-organizations",
+          "workstation_id": "codestra-connect::cn-f-enterprise::01-organizations",
+          "branch": "subsection/cn-f-enterprise--01-organizations",
+          "parent_branch": "section/cn-f-enterprise",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-f-enterprise/subsections/01-organizations/repo"
+        },
+        {
+          "subsection": "02-work-personas",
+          "workstation_id": "codestra-connect::cn-f-enterprise::02-work-personas",
+          "branch": "subsection/cn-f-enterprise--02-work-personas",
+          "parent_branch": "section/cn-f-enterprise",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-f-enterprise::01-organizations"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-f-enterprise/subsections/02-work-personas/repo"
+        },
+        {
+          "subsection": "03-admin-policy",
+          "workstation_id": "codestra-connect::cn-f-enterprise::03-admin-policy",
+          "branch": "subsection/cn-f-enterprise--03-admin-policy",
+          "parent_branch": "section/cn-f-enterprise",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-f-enterprise::02-work-personas"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-f-enterprise/subsections/03-admin-policy/repo"
+        },
+        {
+          "subsection": "04-enterprise-audit",
+          "workstation_id": "codestra-connect::cn-f-enterprise::04-enterprise-audit",
+          "branch": "subsection/cn-f-enterprise--04-enterprise-audit",
+          "parent_branch": "section/cn-f-enterprise",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-f-enterprise::03-admin-policy"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-f-enterprise/subsections/04-enterprise-audit/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-g-ux",
+      "branch": "section/cn-g-ux",
+      "order": 7,
+      "depends_on": [
+        "codestra-connect::cn-f-enterprise"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-pwa-shell",
+          "workstation_id": "codestra-connect::cn-g-ux::01-pwa-shell",
+          "branch": "subsection/cn-g-ux--01-pwa-shell",
+          "parent_branch": "section/cn-g-ux",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-g-ux/subsections/01-pwa-shell/repo"
+        },
+        {
+          "subsection": "02-sharing-journey",
+          "workstation_id": "codestra-connect::cn-g-ux::02-sharing-journey",
+          "branch": "subsection/cn-g-ux--02-sharing-journey",
+          "parent_branch": "section/cn-g-ux",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-g-ux::01-pwa-shell"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-g-ux/subsections/02-sharing-journey/repo"
+        },
+        {
+          "subsection": "03-accessibility-responsive",
+          "workstation_id": "codestra-connect::cn-g-ux::03-accessibility-responsive",
+          "branch": "subsection/cn-g-ux--03-accessibility-responsive",
+          "parent_branch": "section/cn-g-ux",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-g-ux::02-sharing-journey"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-g-ux/subsections/03-accessibility-responsive/repo"
+        },
+        {
+          "subsection": "04-offline-notifications",
+          "workstation_id": "codestra-connect::cn-g-ux::04-offline-notifications",
+          "branch": "subsection/cn-g-ux--04-offline-notifications",
+          "parent_branch": "section/cn-g-ux",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-g-ux::03-accessibility-responsive"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-g-ux/subsections/04-offline-notifications/repo"
+        }
+      ]
+    },
+    {
+      "section": "cn-h-trust-release",
+      "branch": "section/cn-h-trust-release",
+      "order": 8,
+      "depends_on": [
+        "codestra-connect::cn-g-ux"
+      ],
+      "subsections": [
+        {
+          "subsection": "01-privacy-security",
+          "workstation_id": "codestra-connect::cn-h-trust-release::01-privacy-security",
+          "branch": "subsection/cn-h-trust-release--01-privacy-security",
+          "parent_branch": "section/cn-h-trust-release",
+          "order": 1,
+          "depends_on": [],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-h-trust-release/subsections/01-privacy-security/repo"
+        },
+        {
+          "subsection": "02-observability",
+          "workstation_id": "codestra-connect::cn-h-trust-release::02-observability",
+          "branch": "subsection/cn-h-trust-release--02-observability",
+          "parent_branch": "section/cn-h-trust-release",
+          "order": 2,
+          "depends_on": [
+            "codestra-connect::cn-h-trust-release::01-privacy-security"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-h-trust-release/subsections/02-observability/repo"
+        },
+        {
+          "subsection": "03-testing-performance",
+          "workstation_id": "codestra-connect::cn-h-trust-release::03-testing-performance",
+          "branch": "subsection/cn-h-trust-release--03-testing-performance",
+          "parent_branch": "section/cn-h-trust-release",
+          "order": 3,
+          "depends_on": [
+            "codestra-connect::cn-h-trust-release::02-observability"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-h-trust-release/subsections/03-testing-performance/repo"
+        },
+        {
+          "subsection": "04-certification-promotion",
+          "workstation_id": "codestra-connect::cn-h-trust-release::04-certification-promotion",
+          "branch": "subsection/cn-h-trust-release--04-certification-promotion",
+          "parent_branch": "section/cn-h-trust-release",
+          "order": 4,
+          "depends_on": [
+            "codestra-connect::cn-h-trust-release::03-testing-performance"
+          ],
+          "required_gates": [
+            "lint",
+            "unit",
+            "integration",
+            "contract",
+            "security",
+            "clean_tree",
+            "remote_sha_match",
+            "ci_exact_sha",
+            "review",
+            "regression"
+          ],
+          "worktree": "/srv/codestra/workstations/Codestra-Connect/sections/cn-h-trust-release/subsections/04-certification-promotion/repo"
+        }
+      ]
+    }
+  ]
+}

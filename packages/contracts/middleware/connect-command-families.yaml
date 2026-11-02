@@ -1,0 +1,6 @@
+version: 1
+authority: middleware-v3
+submit: /platform/v1/commands
+readback: /platform/v1/operations/{operation_id}
+service_catalog: /platform/v1/services
+command_families: [connect.crm., connect.social., connect.notification., connect.provisioning., connect.webhook., connect.audit.]
